@@ -1,0 +1,44 @@
+.btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: darkred;
+  width: 30px;
+  height: 30px;
+  font-size: 35px;
+  cursor: pointer;
+  border: transparent;
+}
+.btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.reduce {
+  width: 38px;
+  height: 38px;
+  font-size: 36px;
+  color: brown;
+  margin-right: 8px;
+  border: transparent;
+  border-radius: 8px;
+}
+.reduce:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.increase {
+  width: 38px;
+  height: 38px;
+  font-size: 36px;
+  color: brown;
+  margin-left: 8px;
+  border: transparent;
+  border-radius: 8px;
+}
+.increase:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.crowd-rating {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #0b0303;
+}
