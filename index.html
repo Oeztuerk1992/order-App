@@ -61,17 +61,26 @@
           <div class="basket">
           
           <h2 class="basket_titel">Warenkorb <button class="trash_shopping_cart" onclick="closeBasketResponsive()">x</button></h2>
-          <div class="scroll">
-          <div id="basket-content"></div>
+          <div class="content_basket">
+          <div class="basket-content" id="basket-content"></div>
           </div>
           <div id="basket-sum" class="basket-sum"></div>
 
         </div>
 
+        <div id="basket-overlay" class="overlay hidden">
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p>Vielen Dank für Ihre Bestellung! 🍔🍟</p>
+            <div class="countdown">
+              <img class="burger-logo1" src="./Logo/burger-logo.jpg" alt="burger-logo">
+              <p>Ihre Bestellung wird in <span class="timer" id="countdown-timer"> 45:00 </span> min geliefert.</p>
+            </div>
+          </div>
+        </div>
+        </div>
 
-
- 
-        
         </section>
 </div>
   

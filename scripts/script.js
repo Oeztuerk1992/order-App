@@ -86,3 +86,28 @@ function closeBasketResponsive() {
   let closeBasket = document.body.classList.remove("show-basket");
   return closeBasket;
 }
+function orderNow() {
+  const overlay = document.querySelector("#basket-overlay");
+  overlay.style.display = "block";
+}
+function closePopup() {
+  const closePopup = document.querySelector(".close");
+  const overlay = document.querySelector("#basket-overlay");
+
+  if (closePopup) {
+    overlay.style.display = "none";
+  }
+}
+const countDown = document.getElementById("countdown-timer");
+const startMinutes = 45;
+let time = startMinutes * 60;
+
+setInterval(timeCountdown, 1000);
+
+function timeCountdown() {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  countDown.innerHTML = `${minutes}: ${seconds}`;
+  time--;
+}

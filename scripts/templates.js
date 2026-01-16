@@ -69,6 +69,8 @@ function getTotalPriceTemplate(subtotal) {
       )} €</td>
     </tr>
     </table>
+    <button class="order-btn" onclick="orderNow()">Jetzt bestellen</button>
+    
     </div>
   `;
 }
