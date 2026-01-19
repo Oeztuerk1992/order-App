@@ -1,6 +1,5 @@
 header {
   width: 100%;
-
   background-color: orange;
   display: flex;
   justify-content: space-between;
@@ -135,7 +134,7 @@ img {
   color: #333;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+
   align-items: center;
   justify-content: center;
   height: 320px;
