@@ -3,16 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .body {
   background-color: #ffffff;
   transition: background-color 0.3s ease;
 }
+
 .categories {
   display: flex;
   justify-content: flex-start;
   gap: 12px;
   margin-bottom: 24px;
 }
+
 .category {
   color: darkorange;
   font-size: 19px;
@@ -23,19 +26,29 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
+
 .category:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-@media (min-width: 600px) and (max-width: 4500px) {
+@media (max-width: 1920px) {
+  .body {
+    max-height: 1440px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 4000px) {
   .trash_shopping_cart {
     display: none;
   }
+  .amountResponsive {
+    display: none;
+  }
 }
+
 @media (max-width: 1300px) {
   .burger-logo {
     position: absolute;
-
     width: 92px;
     height: 92px;
     border-radius: 50%;
@@ -50,14 +63,19 @@
   .basket_wrapper {
     display: none;
     width: 100%;
+    height: auto;
     box-shadow: none;
   }
+
   header {
-    display: none;
+    height: auto;
+    width: 100%;
   }
+
   .burger-logo {
     display: none;
   }
+
   .burger-logo {
     position: absolute;
     width: 64px;
@@ -69,15 +87,18 @@
     margin: 16px auto;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   }
+
   .popup {
     width: 90%;
     height: auto;
     max-height: 80%;
     overflow-y: auto;
   }
+
   .content {
     width: 100%;
   }
+
   .basket_wrapper {
     width: 100%;
     padding: 16px;
@@ -89,8 +110,27 @@
     bottom: 20px;
     transform: translate(-50%);
     left: 50%;
-    z-index: 1000;
+    z-index: 1001;
   }
+
+  .btnResponsive {
+    display: inline-block !important;
+
+    padding: 8px;
+    background-color: darkorange;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    top: 120px;
+    left: 300px;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+  }
+
   .trash_dish {
     position: absolute;
     top: 0px;
@@ -103,23 +143,27 @@
   body.show-basket .content {
     display: none;
   }
+
   .footer {
     display: none;
   }
+
   body.show-basket .burger-logo {
     display: none;
   }
+
   body.show-basket .basket_wrapper {
     display: block;
   }
+
   .basket-sum {
     bottom: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
+
   .basket {
     width: 100%;
     position: static;
@@ -127,10 +171,12 @@
     top: 0;
     right: 0;
   }
+
   .basket_titel {
     display: flex;
     justify-content: space-evenly;
   }
+
   .trash_shopping_cart {
     color: white;
     background-color: orange;
@@ -139,6 +185,7 @@
     width: 24px;
     font-size: 24px;
   }
+
   .trash_dish {
     position: relative;
     top: 0px;
@@ -146,5 +193,91 @@
     height: auto;
     width: 20px;
     cursor: pointer;
+  }
+}
+
+.amount_responsive {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+  color: black;
+}
+
+@media (max-width: 530px) {
+  .btnResponsive {
+    position: absolute;
+    left: 200px;
+    top: 125px;
+    right: 20px;
+    cursor: pointer;
+    height: 34px;
+    width: 110px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 489px) {
+  .scroll {
+    overflow-y: auto;
+    height: 420px;
+    scroll-behavior: smooth;
+    scrollbar-color: black;
+    padding: 9px;
+  }
+  .scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+  .scroll::-webkit-scrollbar-thumb {
+    background-color: darkorange;
+    border-radius: 6px;
+  }
+
+  .btnResponsive {
+    position: absolute;
+    left: 194px;
+    top: 125px;
+    right: 20px;
+    cursor: pointer;
+    height: 34px;
+    width: 120px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 430px) {
+  .btnResponsive {
+    position: absolute;
+    left: 160px;
+    top: 145px;
+    right: 20px;
+    cursor: pointer;
+    height: auto;
+    width: 100px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .btnResponsive {
+    position: absolute;
+    left: 130px;
+    top: 145px;
+    right: 20px;
+    cursor: pointer;
+    height: auto;
+    width: 90px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 340px) {
+  .btnResponsive {
+    position: absolute;
+    left: 140px;
+    top: 175px;
+    right: 20px;
+    cursor: pointer;
+    height: auto;
+    width: 80px;
+    font-size: 8px;
   }
 }

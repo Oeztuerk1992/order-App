@@ -5,6 +5,7 @@ let myDishes = [
     description:
       "Premium-Beef, zartschmelzender Cheddar, karamellisierte Zwiebeln und Spezialsoße im goldbraunen Brioche-Bun.",
     amount: 0,
+    amountResponsive: 0,
     deliveryCost: 5.0,
   },
   {
@@ -13,6 +14,7 @@ let myDishes = [
     description:
       "Saftiges Rindfleisch mit gegrillter Ananas, würziger Soße und frischem Salat im weichen Bun.",
     amount: 0,
+    amountResponsive: 0,
     deliveryCost: 5.0,
   },
   {
@@ -21,6 +23,7 @@ let myDishes = [
     description:
       "Feiner Pizzateig mit sonnengereiften Tomaten, cremigem Mozzarella und frischem Basilikum – einfach italienisch pur.",
     amount: 0,
+    amountResponsive: 0,
     deliveryCost: 5.0,
   },
   {
@@ -29,6 +32,7 @@ let myDishes = [
     description:
       "Knackiges Gemüse, cremiger Hummus und frische Kräuter in einem weichen Tortilla-Wrap – gesund und lecker.",
     amount: 0,
+    amountResponsive: 0,
     deliveryCost: 5.0,
   },
   {
@@ -37,6 +41,7 @@ let myDishes = [
     description:
       "Frischer Römersalat, knusprige Croutons, Parmesan und hausgemachtes Caesar-Dressing – ein Klassiker.",
     amount: 0,
+    amountResponsive: 0,
     deliveryCost: 5.0,
   },
 ];

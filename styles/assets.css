@@ -4,26 +4,36 @@
   right: 15px;
   color: darkred;
   width: 30px;
-  height: 30px;
+  height: auto;
   font-size: 35px;
   cursor: pointer;
   border: transparent;
+  border-radius: 8px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
+
 .btn:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
 }
 .reduce {
-  width: 38px;
-  height: 38px;
+  width: 30px;
   font-size: 36px;
   color: brown;
   margin-right: 8px;
   border: transparent;
   border-radius: 8px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
+
 .reduce:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 .increase {
   width: 38px;
   height: 38px;
@@ -33,12 +43,38 @@
   border: transparent;
   border-radius: 8px;
 }
+
 .increase:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 .crowd-rating {
   display: flex;
   align-items: center;
   font-size: 14px;
   color: #0b0303;
+}
+
+.btn_back {
+  position: absolute;
+  top: -45px;
+  color: darkred;
+  width: 9px;
+  font-size: 18px;
+  cursor: pointer;
+  border: transparent;
+  border-radius: 8px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn_back:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+  width: 18px;
+}
+
+.btnResponsive {
+  display: none;
 }

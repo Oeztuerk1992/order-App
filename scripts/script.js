@@ -1,3 +1,8 @@
+const countDown = document.getElementById("countdown-timer");
+const startMinutes = 45;
+let time = startMinutes * 60;
+const header = document.querySelector("header");
+
 update();
 function update() {
   contentDesign();
@@ -12,6 +17,7 @@ function contentDesign() {
     content.innerHTML += getContentTemplate(indexContent);
   }
 }
+
 function renderBasket() {
   const basket = document.querySelector("#basket-content");
 
@@ -27,10 +33,18 @@ function renderBasket() {
 
 function addToBasket(indexBasket) {
   let basketValue = myDishes[indexBasket];
+  let btnResponsive = document.querySelectorAll(".btnResponsive");
+  let amountResponsiveElements = document.querySelectorAll(".amountResponsive");
+
   basketValue.amount++;
-  if (basketValue.amount === 0) {
-    basketValue.amount = 1;
+
+  btnResponsive[indexBasket].innerHTML = "Added";
+
+  if (amountResponsiveElements[indexBasket]) {
+    amountResponsiveElements[indexBasket].innerHTML =
+      getAmountResponsiveTemplate(indexBasket);
   }
+
   renderBasket();
   getTotalPrice();
 }
@@ -78,29 +92,39 @@ function getTotalPrice() {
 }
 
 function getBasketResponsive() {
-  let basketResponsive = document.body.classList.add("show-basket");
-  return basketResponsive;
+  document.body.classList.add("show-basket");
+  const overlay = document.querySelector("#basket-overlay");
+
+  const myDishesInBasket = myDishes.filter((dish) => dish.amount > 0);
+
+  if (myDishesInBasket.length === 0) {
+    if (overlay) overlay.style.display = "none";
+    if (header) header.style.display = "none";
+  } else {
+    if (overlay) overlay.style.display = "none";
+    if (header) header.style.display = "none";
+  }
 }
 
 function closeBasketResponsive() {
-  let closeBasket = document.body.classList.remove("show-basket");
-  return closeBasket;
+  const basketResponsive = document.body.classList.remove("show-basket");
+  const overlay = document.querySelector("#basket-overlay");
+  overlay.style.display = "none";
+  header.style.display = "block";
 }
+
 function orderNow() {
   const overlay = document.querySelector("#basket-overlay");
   overlay.style.display = "block";
 }
+
 function closePopup() {
   const closePopup = document.querySelector(".close");
   const overlay = document.querySelector("#basket-overlay");
 
-  if (closePopup) {
-    overlay.style.display = "none";
-  }
+  overlay.style.display = "none";
+  if (closePopup) closeBasketResponsive();
 }
-const countDown = document.getElementById("countdown-timer");
-const startMinutes = 45;
-let time = startMinutes * 60;
 
 setInterval(timeCountdown, 1000);
 
@@ -110,4 +134,15 @@ function timeCountdown() {
 
   countDown.innerHTML = `${minutes}: ${seconds}`;
   time--;
+}
+
+function showOrderMessage() {
+  const basketContent = document.querySelector(".basket");
+  basketContent.innerHTML = getEmptyBasketTemplate();
+}
+
+function backToShopping() {
+  const backToShopping = window.location.reload();
+
+  return backToShopping;
 }
