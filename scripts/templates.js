@@ -5,17 +5,22 @@ function getContentTemplate(indexContent) {
                     <h3> ${dish.name}</h3>
                     <p> ${dish.description}</p>
                     <span>${dish.price}€ </span>
-                    <button class="btnResponsive" onclick="addToBasket(${indexContent})">Add to basket</button>
-                    <p class="amountResponsive" id="amountResponsive">
-                      <span class="material-symbols-outlined"> shopping_cart${dish.amount}</p></span> 
-                      </p>
+                    <div class="designResponsive">
+                      <button class="btnResponsive" onclick="addToBasket(${indexContent})">Add to basket</button>
+                    </div>
                 </div>
-                <div>
                 
-                  <button class="btn" onclick="addToBasket(${indexContent}) ">&#43</button>
-                </div>
-            </div>
+                
+                <button class="icon-btn" onclick="addToBasket(${indexContent})">
+                  <span class="material-symbols-outlined">add</span>
+                </button>
+                  
+             
 
+                  
+                </div>
+              </div>
+            </div>
             `;
 }
 
@@ -24,14 +29,17 @@ function getBasketTemplate(indexContent) {
   return `
       <div class="basket-dish">
           <div class="basket-description">
+          <div class="trash">
+          <img src="img/delete_icon.png" onclick ="deleteFromBasket(${indexContent})" class="trash_dish"/>
+          </div>
              <h3> ${dish.name}</h3>
-              <img src="img/delete_icon.png" onclick ="deleteFromBasket(${indexContent})" class="trash_dish"/>
+              
                   <div class="basketQuantity">
-                      <button type="button" class="reduce" onclick="reduceAmount(${indexContent})">-</button>
+                      <button type="button" class="material-symbols-outlined" onclick="reduceAmount(${indexContent})">remove</button>
                       <span id="change">${(dish.price * dish.amount).toFixed(
-                        2
+                        2,
                       )} € </span>
-                      <button type="button" class="increase"  onclick="increaseAmount(${indexContent})" >+</button>
+                      <button type="button" class="material-symbols-outlined"  onclick="increaseAmount(${indexContent})">add</button>
                   </div>
                       <p class="amount" id="amount">
                       Menge: ${myDishes[indexContent].amount}x
@@ -56,7 +64,7 @@ function getTotalPriceTemplate(subtotal) {
     <tr class="total-table">
       <td class="bold"> Gesamt</td>
       <td class="bold"> ${(subtotal + myDishes[0].deliveryCost).toFixed(
-        2
+        2,
       )} €</td>
     </tr>
     </table>
@@ -72,14 +80,5 @@ function getEmptyBasketTemplate() {
       <button class="btn_back" onclick="backToShopping()">X</button>
       <p>Ihre Bestellung wurde erfolgreich aufgegeben.</p>
     </div>
-  `;
-}
-
-function getAmountResponsiveTemplate(indexContent) {
-  const basketValue = myDishes[indexContent];
-  return `
-    <p class="amount_responsive" id="amountResponsive">
-     <span class="material-symbols-outlined"> shopping_cart${basketValue.amount}</span>
-    </p>
   `;
 }

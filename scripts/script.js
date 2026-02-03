@@ -40,13 +40,20 @@ function addToBasket(indexBasket) {
 
   btnResponsive[indexBasket].innerHTML = "Added";
 
-  if (amountResponsiveElements[indexBasket]) {
-    amountResponsiveElements[indexBasket].innerHTML =
-      getAmountResponsiveTemplate(indexBasket);
-  }
-
   renderBasket();
   getTotalPrice();
+  updateBasketButtonCount();
+}
+
+function updateBasketButtonCount() {
+  const counter = document.getElementById("basket-count");
+  let totalAmount = 0;
+
+  for (let indexBasket = 0; indexBasket < myDishes.length; indexBasket++) {
+    totalAmount += myDishes[indexBasket].amount;
+  }
+
+  counter.innerHTML = totalAmount;
 }
 
 function increaseAmount(raise) {
@@ -57,20 +64,19 @@ function increaseAmount(raise) {
 }
 
 function reduceAmount(reduce) {
-  let basketValue = myDishes[reduce];
-  if (basketValue.amount > 0) {
-    basketValue.amount--;
+  if (myDishes[index].amount > 0) {
+    myDishes[index].amount--;
   }
-
   renderBasket();
   getTotalPrice();
+  updateBasketButtonCount();
 }
 
 function deleteFromBasket(deleteIndex) {
-  let deleteFromBasket = myDishes[deleteIndex];
-  deleteFromBasket.amount = 0;
+  myDishes[deleteIndex].amount = 0;
   renderBasket();
   getTotalPrice();
+  updateBasketButtonCount();
 }
 
 function getTotalPrice() {
@@ -107,15 +113,35 @@ function getBasketResponsive() {
 }
 
 function closeBasketResponsive() {
-  const basketResponsive = document.body.classList.remove("show-basket");
   const overlay = document.querySelector("#basket-overlay");
+  const counter = document.getElementById("basket-count");
+  const basketContent = document.getElementById("basket-content");
+  const basketSum = document.querySelector(".basket-sum");
+
+  for (let i = 0; i < myDishes.length; i++) {
+    myDishes[i].amount = 0;
+  }
+
+  counter.innerHTML = 0;
+
+  basketContent.innerHTML = "Ihr Warenkorb ist leer.";
+  basketSum.innerHTML = "";
   overlay.style.display = "none";
   header.style.display = "block";
+  document.body.classList.remove("show-basket");
+
+  contentDesign();
 }
 
 function orderNow() {
   const overlay = document.querySelector("#basket-overlay");
+  const cleanBasket = document.querySelector("#basketHead");
+  let emptyCart = document.querySelector("#basket-content");
+  let showTotalPrice = document.querySelector(".basket-sum");
+
   overlay.style.display = "block";
+  emptyCart.innerHTML = "Ihr Warenkorb ist leer.";
+  showTotalPrice.innerHTML = "";
 }
 
 function closePopup() {
