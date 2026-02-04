@@ -26,28 +26,34 @@ function getContentTemplate(indexContent) {
 
 function getBasketTemplate(indexContent) {
   const dish = myDishes[indexContent];
-  return `
-      <div class="basket-dish">
-          <div class="basket-description">
-          <div class="trash">
-          <img src="img/delete_icon.png" onclick ="deleteFromBasket(${indexContent})" class="trash_dish"/>
-          </div>
-             <h3> ${dish.name}</h3>
-              
-                  <div class="basketQuantity">
-                      <button type="button" class="material-symbols-outlined" onclick="reduceAmount(${indexContent})">remove</button>
-                      <span id="change">${(dish.price * dish.amount).toFixed(
-                        2,
-                      )} € </span>
-                      <button type="button" class="material-symbols-outlined"  onclick="increaseAmount(${indexContent})">add</button>
-                  </div>
-                      <p class="amount" id="amount">
-                      Menge: ${myDishes[indexContent].amount}x
-                      </p>
-          </div>
-      </div>
 
-              `;
+  return `
+    <div class="basket-dish body.show-basket header">
+      <div class="basket-description">
+        <div class="trash">
+          <img src="img/delete_icon.png"
+               onclick="deleteFromBasket(${indexContent})"
+               class="trash_dish"/>
+        </div>
+
+        <h3>${dish.name}</h3>
+
+        <div class="basketQuantity">
+         <button class="material-symbols-outlined" onclick="changeAmount(null, ${indexContent})">remove</button>
+
+          <span>
+            ${(dish.price * dish.amount).toFixed(2)} €
+          </span>
+
+         <button class="material-symbols-outlined" onclick="changeAmount(${indexContent}, null)">add</button>
+        </div>
+
+        <p class="amount">
+          Menge: ${dish.amount}x
+        </p>
+      </div>
+    </div>
+  `;
 }
 
 function getTotalPriceTemplate(subtotal) {

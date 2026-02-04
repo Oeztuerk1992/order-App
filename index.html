@@ -17,18 +17,38 @@
   </head>
 
   <body>
-    
-        <header>
+    <div class="overlay">
+              <div class="popup">
+                 <span class="close" onclick="closeBasketResponsive()">&times;</span>
+                <div class="popup-content">
+                  <p>Vielen Dank für Ihre Bestellung! 🍔🍟</p>
+                  <div class="countdown">
+                    <img
+                      class="burger-logo1"
+                      src="./Logo/burger-logo.jpg"
+                      alt="burger-logo"
+                    />
+                    <p>
+                      Ihre Bestellung wird in
+                      <span class="timer" id="countdown-timer"> 45:00 </span>
+                      min geliefert.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    <header>
           <div class="head_container">
           <a href="index.html"
             ><img class="logo" src="./Logo/Bestell App- Logo.svg" alt="Logo"
           /></a>
           </div>
-        </header>
-<section class="contentScreen">
-      <div class="container">
-        <div class="logo-wrapper">
-          <img
+    </header>
+        <section class="contentScreen">
+            <div class="container">
+              <div class="logo-wrapper">
+              <img
             class="burger-logo"
             src="./Logo/burger-logo.jpg"
             alt="burger-logo"
@@ -47,7 +67,6 @@
             <div class="fast-food"></div>
 
              <div id="main">
-                <div id="overlay">
                     <button onclick="getBasketResponsive()" class="btn_basket">
                     <span class="basket-word">Warenkorb</span>
                       <span class="basket-icon-wrapper">
@@ -78,36 +97,19 @@
               </div>
 
               <div class="scroll">
-                <div class="basket-content" id="basket-content"></div>
+                <div class="basket-content" id="basket-content">
+                  Ihr Warenkorb ist leer.
+                </div>
               </div>
 
               <div id="basket-sum" class="basket-sum"></div>
             </div>
 
-            <div id="basket-overlay" class="overlay hidden">
-              <div id="popup" class="popup">
-                <div class="popup-content">
-                  <span class="close" onclick="closePopup()">&times;</span>
-                  <p>Vielen Dank für Ihre Bestellung! 🍔🍟</p>
-                  <div class="countdown">
-                    <img
-                      class="burger-logo1"
-                      src="./Logo/burger-logo.jpg"
-                      alt="burger-logo"
-                    />
-                    <p>
-                      Ihre Bestellung wird in
-                      <span class="timer" id="countdown-timer"> 45:00 </span>
-                      min geliefert.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </section>
         </div>
  </section>
-  </body>
+  
         <footer class="footer">
           <span>© 2026 Bestell App</span>
         </footer>
@@ -116,5 +118,5 @@
         <script src="./scripts/templates.js"></script>
         <script src="./scripts/script.js"></script>
       </div>
-   
+   </body>
 </html>

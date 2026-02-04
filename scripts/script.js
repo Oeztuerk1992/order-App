@@ -56,17 +56,15 @@ function updateBasketButtonCount() {
   counter.innerHTML = totalAmount;
 }
 
-function increaseAmount(raise) {
-  let countUp = myDishes[raise];
-  countUp.amount++;
-  renderBasket();
-  getTotalPrice();
-}
-
-function reduceAmount(reduce) {
-  if (myDishes[index].amount > 0) {
-    myDishes[index].amount--;
+function changeAmount(raise, reduce) {
+  if (raise !== null) {
+    myDishes[raise].amount++;
   }
+
+  if (reduce !== null && myDishes[reduce].amount > 0) {
+    myDishes[reduce].amount--;
+  }
+
   renderBasket();
   getTotalPrice();
   updateBasketButtonCount();
@@ -99,57 +97,38 @@ function getTotalPrice() {
 
 function getBasketResponsive() {
   document.body.classList.add("show-basket");
-  const overlay = document.querySelector("#basket-overlay");
-
-  const myDishesInBasket = myDishes.filter((dish) => dish.amount > 0);
-
-  if (myDishesInBasket.length === 0) {
-    if (overlay) overlay.style.display = "none";
-    if (header) header.style.display = "none";
-  } else {
-    if (overlay) overlay.style.display = "none";
-    if (header) header.style.display = "none";
-  }
 }
 
 function closeBasketResponsive() {
+  document.body.classList.remove("show-basket");
   const overlay = document.querySelector("#basket-overlay");
   const counter = document.getElementById("basket-count");
   const basketContent = document.getElementById("basket-content");
   const basketSum = document.querySelector(".basket-sum");
 
-  for (let i = 0; i < myDishes.length; i++) {
-    myDishes[i].amount = 0;
+  for (let indexLength = 0; indexLength < myDishes.length; indexLength++) {
+    myDishes[indexLength].amount = 0;
   }
 
   counter.innerHTML = 0;
 
   basketContent.innerHTML = "Ihr Warenkorb ist leer.";
   basketSum.innerHTML = "";
-  overlay.style.display = "none";
-  header.style.display = "block";
+
   document.body.classList.remove("show-basket");
+  document.body.classList.remove("order-success");
 
   contentDesign();
 }
 
 function orderNow() {
-  const overlay = document.querySelector("#basket-overlay");
-  const cleanBasket = document.querySelector("#basketHead");
-  let emptyCart = document.querySelector("#basket-content");
-  let showTotalPrice = document.querySelector(".basket-sum");
+  document.body.classList.add("order-success");
 
-  overlay.style.display = "block";
-  emptyCart.innerHTML = "Ihr Warenkorb ist leer.";
-  showTotalPrice.innerHTML = "";
-}
+  const emptyCart = document.querySelector("#basket-content");
+  const showTotalPrice = document.querySelector(".basket-sum");
 
-function closePopup() {
-  const closePopup = document.querySelector(".close");
-  const overlay = document.querySelector("#basket-overlay");
-
-  overlay.style.display = "none";
-  if (closePopup) closeBasketResponsive();
+  emptyCart.textContent = "Ihr Warenkorb ist leer.";
+  showTotalPrice.textContent = "";
 }
 
 setInterval(timeCountdown, 1000);
