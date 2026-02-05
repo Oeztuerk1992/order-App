@@ -39,13 +39,13 @@ function getBasketTemplate(indexContent) {
         <h3>${dish.name}</h3>
 
         <div class="basketQuantity">
-         <button class="material-symbols-outlined" onclick="changeAmount(null, ${indexContent})">remove</button>
+         <button class="material-symbols-outlined" onclick="changeAmount(false, ${indexContent})">remove</button>
 
           <span>
             ${(dish.price * dish.amount).toFixed(2)} €
           </span>
 
-         <button class="material-symbols-outlined" onclick="changeAmount(${indexContent}, null)">add</button>
+         <button class="material-symbols-outlined" onclick="changeAmount(true, ${indexContent})">add</button>
         </div>
 
         <p class="amount">

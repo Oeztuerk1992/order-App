@@ -105,9 +105,9 @@ span {
   transition: box-shadow 0.3s ease;
 }
 
-.fast-food:hover {
+/* .fast-food:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+} */
 
 img {
   width: 100%;

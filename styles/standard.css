@@ -48,7 +48,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-@media (min-width: 600px) and (max-width: 13000px) {
+@media (min-width: 780px) and (max-width: 13000px) {
   .trash_shopping_cart {
     display: none;
   }
@@ -75,7 +75,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   .basket_wrapper {
     display: none;
     width: 100%;

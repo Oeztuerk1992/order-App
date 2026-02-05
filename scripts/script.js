@@ -56,13 +56,13 @@ function updateBasketButtonCount() {
   counter.innerHTML = totalAmount;
 }
 
-function changeAmount(raise, reduce) {
-  if (raise !== null) {
-    myDishes[raise].amount++;
-  }
-
-  if (reduce !== null && myDishes[reduce].amount > 0) {
-    myDishes[reduce].amount--;
+function changeAmount(shouldIncrease, indexDish) {
+  if (shouldIncrease == true) {
+    myDishes[indexDish].amount++;
+  } else {
+    if (myDishes[indexDish].amount > 0) {
+      myDishes[indexDish].amount--;
+    }
   }
 
   renderBasket();
@@ -110,11 +110,6 @@ function closeBasketResponsive() {
     myDishes[indexLength].amount = 0;
   }
 
-  counter.innerHTML = 0;
-
-  basketContent.innerHTML = "Ihr Warenkorb ist leer.";
-  basketSum.innerHTML = "";
-
   document.body.classList.remove("show-basket");
   document.body.classList.remove("order-success");
 
@@ -126,8 +121,9 @@ function orderNow() {
 
   const emptyCart = document.querySelector("#basket-content");
   const showTotalPrice = document.querySelector(".basket-sum");
-
+  const counter = document.getElementById("basket-count");
   emptyCart.textContent = "Ihr Warenkorb ist leer.";
+  counter.innerHTML = 0;
   showTotalPrice.textContent = "";
 }
 
